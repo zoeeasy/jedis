@@ -7,37 +7,38 @@ import redis.clients.jedis.params.ClientKillParams;
 import redis.clients.jedis.util.Slowlog;
 
 public interface AdvancedJedisCommands {
-  List<String> configGet(String pattern);
 
-  String configSet(String parameter, String value);
+    List<String> configGet(String pattern);
 
-  String slowlogReset();
+    String configSet(String parameter, String value);
 
-  Long slowlogLen();
+    String slowlogReset();
 
-  List<Slowlog> slowlogGet();
+    Long slowlogLen();
 
-  List<Slowlog> slowlogGet(long entries);
+    List<Slowlog> slowlogGet();
 
-  Long objectRefcount(String key);
+    List<Slowlog> slowlogGet(long entries);
 
-  String objectEncoding(String key);
+    Long objectRefcount(String key);
 
-  Long objectIdletime(String key);
+    String objectEncoding(String key);
 
-  String migrate(String host, int port, String key, int destinationDB, int timeout);
+    Long objectIdletime(String key);
 
-  String migrate(String host, int port, int destinationDB, int timeout, MigrateParams params, String... keys);
+    String migrate(String host, int port, String key, int destinationDB, int timeout);
 
-  String clientKill(String ipPort);
+    String migrate(String host, int port, int destinationDB, int timeout, MigrateParams params, String... keys);
 
-  String clientKill(String ip, int port);
+    String clientKill(String ipPort);
 
-  Long clientKill(ClientKillParams params);
+    String clientKill(String ip, int port);
 
-  String clientGetname();
+    Long clientKill(ClientKillParams params);
 
-  String clientList();
+    String clientGetname();
 
-  String clientSetname(String name);
+    String clientList();
+
+    String clientSetname(String name);
 }

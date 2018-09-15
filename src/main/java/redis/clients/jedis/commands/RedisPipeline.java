@@ -16,282 +16,278 @@ import java.util.Map;
 import java.util.Set;
 
 public interface RedisPipeline {
-  Response<Long> append(String key, String value);
 
-  Response<List<String>> blpop(String arg);
+    Response<Long> append(String key, String value);
 
-  Response<List<String>> brpop(String arg);
+    Response<List<String>> blpop(String arg);
 
-  Response<Long> decr(String key);
+    Response<List<String>> brpop(String arg);
 
-  Response<Long> decrBy(String key, long decrement);
+    Response<Long> decr(String key);
 
-  Response<Long> del(String key);
+    Response<Long> decrBy(String key, long decrement);
 
-  Response<Long> unlink(String key);
+    Response<Long> del(String key);
 
-  Response<String> echo(String string);
+    Response<Long> unlink(String key);
 
-  Response<Boolean> exists(String key);
+    Response<String> echo(String string);
 
-  Response<Long> expire(String key, int seconds);
+    Response<Boolean> exists(String key);
 
-  Response<Long> pexpire(String key, long milliseconds);
+    Response<Long> expire(String key, int seconds);
 
-  Response<Long> expireAt(String key, long unixTime);
+    Response<Long> pexpire(String key, long milliseconds);
 
-  Response<Long> pexpireAt(String key, long millisecondsTimestamp);
+    Response<Long> expireAt(String key, long unixTime);
 
-  Response<String> get(String key);
+    Response<Long> pexpireAt(String key, long millisecondsTimestamp);
 
-  Response<Boolean> getbit(String key, long offset);
+    Response<String> get(String key);
 
-  Response<String> getrange(String key, long startOffset, long endOffset);
+    Response<Boolean> getbit(String key, long offset);
 
-  Response<String> getSet(String key, String value);
+    Response<String> getrange(String key, long startOffset, long endOffset);
 
-  Response<Long> hdel(String key, String... field);
+    Response<String> getSet(String key, String value);
 
-  Response<Boolean> hexists(String key, String field);
+    Response<Long> hdel(String key, String... field);
 
-  Response<String> hget(String key, String field);
+    Response<Boolean> hexists(String key, String field);
 
-  Response<Map<String, String>> hgetAll(String key);
+    Response<String> hget(String key, String field);
 
-  Response<Long> hincrBy(String key, String field, long value);
+    Response<Map<String, String>> hgetAll(String key);
 
-  Response<Set<String>> hkeys(String key);
+    Response<Long> hincrBy(String key, String field, long value);
 
-  Response<Long> hlen(String key);
+    Response<Set<String>> hkeys(String key);
 
-  Response<List<String>> hmget(String key, String... fields);
+    Response<Long> hlen(String key);
 
-  Response<String> hmset(String key, Map<String, String> hash);
+    Response<List<String>> hmget(String key, String... fields);
 
-  Response<Long> hset(String key, String field, String value);
+    Response<String> hmset(String key, Map<String, String> hash);
 
-  Response<Long> hset(String key, Map<String, String> hash);
+    Response<Long> hset(String key, String field, String value);
 
-  Response<Long> hsetnx(String key, String field, String value);
+    Response<Long> hset(String key, Map<String, String> hash);
 
-  Response<List<String>> hvals(String key);
+    Response<Long> hsetnx(String key, String field, String value);
 
-  Response<Long> incr(String key);
+    Response<List<String>> hvals(String key);
 
-  Response<Long> incrBy(String key, long increment);
+    Response<Long> incr(String key);
 
-  Response<String> lindex(String key, long index);
+    Response<Long> incrBy(String key, long increment);
 
-  Response<Long> linsert(String key, ListPosition where, String pivot, String value);
+    Response<String> lindex(String key, long index);
 
-  Response<Long> llen(String key);
+    Response<Long> linsert(String key, ListPosition where, String pivot, String value);
 
-  Response<String> lpop(String key);
+    Response<Long> llen(String key);
 
-  Response<Long> lpush(String key, String... string);
+    Response<String> lpop(String key);
 
-  Response<Long> lpushx(String key, String... string);
+    Response<Long> lpush(String key, String... string);
 
-  Response<List<String>> lrange(String key, long start, long stop);
+    Response<Long> lpushx(String key, String... string);
 
-  Response<Long> lrem(String key, long count, String value);
+    Response<List<String>> lrange(String key, long start, long stop);
 
-  Response<String> lset(String key, long index, String value);
+    Response<Long> lrem(String key, long count, String value);
 
-  Response<String> ltrim(String key, long start, long stop);
+    Response<String> lset(String key, long index, String value);
 
-  Response<Long> move(String key, int dbIndex);
+    Response<String> ltrim(String key, long start, long stop);
 
-  Response<Long> persist(String key);
+    Response<Long> move(String key, int dbIndex);
 
-  Response<String> rpop(String key);
+    Response<Long> persist(String key);
 
-  Response<Long> rpush(String key, String... string);
+    Response<String> rpop(String key);
 
-  Response<Long> rpushx(String key, String... string);
+    Response<Long> rpush(String key, String... string);
 
-  Response<Long> sadd(String key, String... member);
+    Response<Long> rpushx(String key, String... string);
 
-  Response<Long> scard(String key);
+    Response<Long> sadd(String key, String... member);
 
-  Response<Boolean> sismember(String key, String member);
+    Response<Long> scard(String key);
 
-  Response<String> set(String key, String value);
+    Response<Boolean> sismember(String key, String member);
 
-  Response<Boolean> setbit(String key, long offset, boolean value);
+    Response<String> set(String key, String value);
 
-  Response<String> setex(String key, int seconds, String value);
+    Response<Boolean> setbit(String key, long offset, boolean value);
 
-  Response<Long> setnx(String key, String value);
+    Response<String> setex(String key, int seconds, String value);
 
-  Response<Long> setrange(String key, long offset, String value);
+    Response<Long> setnx(String key, String value);
 
-  Response<Set<String>> smembers(String key);
+    Response<Long> setrange(String key, long offset, String value);
 
-  Response<List<String>> sort(String key);
+    Response<Set<String>> smembers(String key);
 
-  Response<List<String>> sort(String key, SortingParams sortingParameters);
+    Response<List<String>> sort(String key);
 
-  Response<String> spop(String key);
+    Response<List<String>> sort(String key, SortingParams sortingParameters);
 
-  Response<Set<String>> spop(String key, long count);
+    Response<String> spop(String key);
 
-  Response<String> srandmember(String key);
+    Response<Set<String>> spop(String key, long count);
 
-  Response<Long> srem(String key, String... member);
+    Response<String> srandmember(String key);
 
-  Response<Long> strlen(String key);
+    Response<Long> srem(String key, String... member);
 
-  Response<String> substr(String key, int start, int end);
+    Response<Long> strlen(String key);
 
-  Response<Long> touch(String key);
+    Response<String> substr(String key, int start, int end);
 
-  Response<Long> ttl(String key);
+    Response<Long> touch(String key);
 
-  Response<Long> pttl(String key);
+    Response<Long> ttl(String key);
 
-  Response<String> type(String key);
+    Response<Long> pttl(String key);
 
-  Response<Long> zadd(String key, double score, String member);
+    Response<String> type(String key);
 
-  Response<Long> zadd(String key, double score, String member, ZAddParams params);
+    Response<Long> zadd(String key, double score, String member);
 
-  Response<Long> zadd(String key, Map<String, Double> scoreMembers);
+    Response<Long> zadd(String key, double score, String member, ZAddParams params);
 
-  Response<Long> zadd(String key, Map<String, Double> scoreMembers, ZAddParams params);
+    Response<Long> zadd(String key, Map<String, Double> scoreMembers);
 
-  Response<Long> zcard(String key);
+    Response<Long> zadd(String key, Map<String, Double> scoreMembers, ZAddParams params);
 
-  Response<Long> zcount(String key, double min, double max);
+    Response<Long> zcard(String key);
 
-  Response<Long> zcount(String key, String min, String max);
+    Response<Long> zcount(String key, double min, double max);
 
-  Response<Double> zincrby(String key, double increment, String member);
+    Response<Long> zcount(String key, String min, String max);
 
-  Response<Double> zincrby(String key, double increment, String member, ZIncrByParams params);
+    Response<Double> zincrby(String key, double increment, String member);
 
-  Response<Set<String>> zrange(String key, long start, long stop);
+    Response<Double> zincrby(String key, double increment, String member, ZIncrByParams params);
 
-  Response<Set<String>> zrangeByScore(String key, double min, double max);
+    Response<Set<String>> zrange(String key, long start, long stop);
 
-  Response<Set<String>> zrangeByScore(String key, String min, String max);
+    Response<Set<String>> zrangeByScore(String key, double min, double max);
 
-  Response<Set<String>> zrangeByScore(String key, double min, double max, int offset, int count);
+    Response<Set<String>> zrangeByScore(String key, String min, String max);
 
-  Response<Set<String>> zrangeByScore(String key, String min, String max, int offset, int count);
+    Response<Set<String>> zrangeByScore(String key, double min, double max, int offset, int count);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(String key, double min, double max);
+    Response<Set<String>> zrangeByScore(String key, String min, String max, int offset, int count);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(String key, double min, double max, int offset,
-      int count);
+    Response<Set<Tuple>> zrangeByScoreWithScores(String key, double min, double max);
 
-  Response<Set<String>> zrevrangeByScore(String key, double max, double min);
+    Response<Set<Tuple>> zrangeByScoreWithScores(String key, double min, double max, int offset, int count);
 
-  Response<Set<String>> zrevrangeByScore(String key, String max, String min);
+    Response<Set<String>> zrevrangeByScore(String key, double max, double min);
 
-  Response<Set<String>> zrevrangeByScore(String key, double max, double min, int offset, int count);
+    Response<Set<String>> zrevrangeByScore(String key, String max, String min);
 
-  Response<Set<String>> zrevrangeByScore(String key, String max, String min, int offset, int count);
+    Response<Set<String>> zrevrangeByScore(String key, double max, double min, int offset, int count);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, double max, double min);
+    Response<Set<String>> zrevrangeByScore(String key, String max, String min, int offset, int count);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, String max, String min);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, double max, double min);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, double max, double min, int offset,
-      int count);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, String max, String min);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, String max, String min, int offset,
-      int count);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, double max, double min, int offset, int count);
 
-  Response<Set<Tuple>> zrangeWithScores(String key, long start, long stop);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(String key, String max, String min, int offset, int count);
 
-  Response<Long> zrank(String key, String member);
+    Response<Set<Tuple>> zrangeWithScores(String key, long start, long stop);
 
-  Response<Long> zrem(String key, String... members);
+    Response<Long> zrank(String key, String member);
 
-  Response<Long> zremrangeByRank(String key, long start, long stop);
+    Response<Long> zrem(String key, String... members);
 
-  Response<Long> zremrangeByScore(String key, double min, double max);
+    Response<Long> zremrangeByRank(String key, long start, long stop);
 
-  Response<Long> zremrangeByScore(String key, String min, String max);
+    Response<Long> zremrangeByScore(String key, double min, double max);
 
-  Response<Set<String>> zrevrange(String key, long start, long stop);
+    Response<Long> zremrangeByScore(String key, String min, String max);
 
-  Response<Set<Tuple>> zrevrangeWithScores(String key, long start, long stop);
+    Response<Set<String>> zrevrange(String key, long start, long stop);
 
-  Response<Long> zrevrank(String key, String member);
+    Response<Set<Tuple>> zrevrangeWithScores(String key, long start, long stop);
 
-  Response<Double> zscore(String key, String member);
+    Response<Long> zrevrank(String key, String member);
 
-  Response<Long> zlexcount(String key, String min, String max);
+    Response<Double> zscore(String key, String member);
 
-  Response<Set<String>> zrangeByLex(String key, String min, String max);
+    Response<Long> zlexcount(String key, String min, String max);
 
-  Response<Set<String>> zrangeByLex(String key, String min, String max,
-      int offset, int count);
+    Response<Set<String>> zrangeByLex(String key, String min, String max);
 
-  Response<Set<String>> zrevrangeByLex(String key, String max, String min);
+    Response<Set<String>> zrangeByLex(String key, String min, String max, int offset, int count);
 
-  Response<Set<String>> zrevrangeByLex(String key, String max, String min,
-      int offset, int count);
+    Response<Set<String>> zrevrangeByLex(String key, String max, String min);
 
-  Response<Long> zremrangeByLex(String key, String min, String max);
+    Response<Set<String>> zrevrangeByLex(String key, String max, String min, int offset, int count);
 
-  Response<Long> bitcount(String key);
+    Response<Long> zremrangeByLex(String key, String min, String max);
 
-  Response<Long> bitcount(String key, long start, long end);
+    Response<Long> bitcount(String key);
 
-  Response<Long> pfadd(String key, String... elements);
+    Response<Long> bitcount(String key, long start, long end);
 
-  Response<Long> pfcount(String key);
-  
-  Response<List<Long>> bitfield(String key, String... arguments);
-  
-  Response<Long> hstrlen(String key, String field);
+    Response<Long> pfadd(String key, String... elements);
 
-  Response<byte[]> dump(String key);
+    Response<Long> pfcount(String key);
 
-  Response<String> restore(String key, int ttl, byte[] serializedValue);
+    Response<List<Long>> bitfield(String key, String... arguments);
 
-  Response<String> restoreReplace(String key, int ttl, byte[] serializedValue);
+    Response<Long> hstrlen(String key, String field);
 
-  Response<String> migrate(String host, int port, String key, int destinationDB, int timeout);
+    Response<byte[]> dump(String key);
 
-  // Geo Commands
+    Response<String> restore(String key, int ttl, byte[] serializedValue);
 
-  Response<Long> geoadd(String key, double longitude, double latitude, String member);
+    Response<String> restoreReplace(String key, int ttl, byte[] serializedValue);
 
-  Response<Long> geoadd(String key, Map<String, GeoCoordinate> memberCoordinateMap);
+    Response<String> migrate(String host, int port, String key, int destinationDB, int timeout);
 
-  Response<Double> geodist(String key, String member1, String member2);
+    // Geo Commands
 
-  Response<Double> geodist(String key, String member1, String member2, GeoUnit unit);
+    Response<Long> geoadd(String key, double longitude, double latitude, String member);
 
-  Response<List<String>> geohash(String key, String... members);
+    Response<Long> geoadd(String key, Map<String, GeoCoordinate> memberCoordinateMap);
 
-  Response<List<GeoCoordinate>> geopos(String key, String... members);
+    Response<Double> geodist(String key, String member1, String member2);
 
-  Response<List<GeoRadiusResponse>> georadius(String key, double longitude, double latitude,
-      double radius, GeoUnit unit);
+    Response<Double> geodist(String key, String member1, String member2, GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadiusReadonly(String key, double longitude, double latitude,
-      double radius, GeoUnit unit);
+    Response<List<String>> geohash(String key, String... members);
 
-  Response<List<GeoRadiusResponse>> georadius(String key, double longitude, double latitude,
-      double radius, GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoCoordinate>> geopos(String key, String... members);
 
-  Response<List<GeoRadiusResponse>> georadiusReadonly(String key, double longitude, double latitude,
-      double radius, GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadius(String key, double longitude, double latitude,
+                                                double radius, GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadiusByMember(String key, String member, double radius,
-      GeoUnit unit);
+    Response<List<GeoRadiusResponse>> georadiusReadonly(String key, double longitude, double latitude,
+                                                        double radius, GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(String key, String member, double radius,
-      GeoUnit unit);
+    Response<List<GeoRadiusResponse>> georadius(String key, double longitude, double latitude,
+                                                double radius, GeoUnit unit, GeoRadiusParam param);
 
-  Response<List<GeoRadiusResponse>> georadiusByMember(String key, String member, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadiusReadonly(String key, double longitude, double latitude,
+                                                        double radius, GeoUnit unit, GeoRadiusParam param);
 
-  Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(String key, String member, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadiusByMember(String key, String member, double radius,
+                                                        GeoUnit unit);
+
+    Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(String key, String member, double radius,
+                                                                GeoUnit unit);
+
+    Response<List<GeoRadiusResponse>> georadiusByMember(String key, String member, double radius,
+                                                        GeoUnit unit, GeoRadiusParam param);
+
+    Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(String key, String member, double radius,
+                                                                GeoUnit unit, GeoRadiusParam param);
 }

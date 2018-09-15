@@ -19,306 +19,309 @@ import java.util.Map;
 import java.util.Set;
 
 public interface BinaryJedisClusterCommands {
-  String set(byte[] key, byte[] value);
 
-  String set(byte[] key, byte[] value, SetParams params);
+    String set(byte[] key, byte[] value);
 
-  byte[] get(byte[] key);
+    String set(byte[] key, byte[] value, SetParams params);
 
-  Boolean exists(byte[] key);
+    byte[] get(byte[] key);
 
-  Long persist(byte[] key);
+    Boolean exists(byte[] key);
 
-  String type(byte[] key);
+    Long persist(byte[] key);
 
-  byte[] dump(byte[] key);
+    String type(byte[] key);
 
-  String restore(byte[] key, int ttl, byte[] serializedValue);
+    byte[] dump(byte[] key);
 
-  Long expire(byte[] key, int seconds);
+    String restore(byte[] key, int ttl, byte[] serializedValue);
 
-  Long pexpire(byte[] key, long milliseconds);
+    Long expire(byte[] key, int seconds);
 
-  Long expireAt(byte[] key, long unixTime);
+    Long pexpire(byte[] key, long milliseconds);
 
-  Long pexpireAt(byte[] key, long millisecondsTimestamp);
+    Long expireAt(byte[] key, long unixTime);
 
-  Long ttl(byte[] key);
+    Long pexpireAt(byte[] key, long millisecondsTimestamp);
 
-  Long pttl(byte[] key);
+    Long ttl(byte[] key);
 
-  Long touch(byte[] key);
+    Long pttl(byte[] key);
 
-  Boolean setbit(byte[] key, long offset, boolean value);
+    Long touch(byte[] key);
 
-  Boolean setbit(byte[] key, long offset, byte[] value);
+    Boolean setbit(byte[] key, long offset, boolean value);
 
-  Boolean getbit(byte[] key, long offset);
+    Boolean setbit(byte[] key, long offset, byte[] value);
 
-  Long setrange(byte[] key, long offset, byte[] value);
+    Boolean getbit(byte[] key, long offset);
 
-  byte[] getrange(byte[] key, long startOffset, long endOffset);
+    Long setrange(byte[] key, long offset, byte[] value);
 
-  byte[] getSet(byte[] key, byte[] value);
+    byte[] getrange(byte[] key, long startOffset, long endOffset);
 
-  Long setnx(byte[] key, byte[] value);
+    byte[] getSet(byte[] key, byte[] value);
 
-  String setex(byte[] key, int seconds, byte[] value);
+    Long setnx(byte[] key, byte[] value);
 
-  String psetex(byte[] key, long milliseconds, byte[] value);
+    String setex(byte[] key, int seconds, byte[] value);
 
-  Long decrBy(byte[] key, long decrement);
+    String psetex(byte[] key, long milliseconds, byte[] value);
 
-  Long decr(byte[] key);
+    Long decrBy(byte[] key, long decrement);
 
-  Long incrBy(byte[] key, long increment);
+    Long decr(byte[] key);
 
-  Double incrByFloat(byte[] key, double increment);
+    Long incrBy(byte[] key, long increment);
 
-  Long incr(byte[] key);
+    Double incrByFloat(byte[] key, double increment);
 
-  Long append(byte[] key, byte[] value);
+    Long incr(byte[] key);
 
-  byte[] substr(byte[] key, int start, int end);
+    Long append(byte[] key, byte[] value);
 
-  Long hset(byte[] key, byte[] field, byte[] value);
+    byte[] substr(byte[] key, int start, int end);
 
-  Long hset(byte[] key, Map<byte[], byte[]> hash);
+    Long hset(byte[] key, byte[] field, byte[] value);
 
-  byte[] hget(byte[] key, byte[] field);
+    Long hset(byte[] key, Map<byte[], byte[]> hash);
 
-  Long hsetnx(byte[] key, byte[] field, byte[] value);
+    byte[] hget(byte[] key, byte[] field);
 
-  String hmset(byte[] key, Map<byte[], byte[]> hash);
+    Long hsetnx(byte[] key, byte[] field, byte[] value);
 
-  List<byte[]> hmget(byte[] key, byte[]... fields);
+    String hmset(byte[] key, Map<byte[], byte[]> hash);
 
-  Long hincrBy(byte[] key, byte[] field, long value);
+    List<byte[]> hmget(byte[] key, byte[]... fields);
 
-  Double hincrByFloat(byte[] key, byte[] field, double value);
+    Long hincrBy(byte[] key, byte[] field, long value);
 
-  Boolean hexists(byte[] key, byte[] field);
+    Double hincrByFloat(byte[] key, byte[] field, double value);
 
-  Long hdel(byte[] key, byte[]... field);
+    Boolean hexists(byte[] key, byte[] field);
 
-  Long hlen(byte[] key);
+    Long hdel(byte[] key, byte[]... field);
 
-  Set<byte[]> hkeys(byte[] key);
+    Long hlen(byte[] key);
 
-  Collection<byte[]> hvals(byte[] key);
+    Set<byte[]> hkeys(byte[] key);
 
-  Map<byte[], byte[]> hgetAll(byte[] key);
+    Collection<byte[]> hvals(byte[] key);
 
-  Long rpush(byte[] key, byte[]... args);
+    Map<byte[], byte[]> hgetAll(byte[] key);
 
-  Long lpush(byte[] key, byte[]... args);
+    Long rpush(byte[] key, byte[]... args);
 
-  Long llen(byte[] key);
+    Long lpush(byte[] key, byte[]... args);
 
-  List<byte[]> lrange(byte[] key, long start, long stop);
+    Long llen(byte[] key);
 
-  String ltrim(byte[] key, long start, long stop);
+    List<byte[]> lrange(byte[] key, long start, long stop);
 
-  byte[] lindex(byte[] key, long index);
+    String ltrim(byte[] key, long start, long stop);
 
-  String lset(byte[] key, long index, byte[] value);
+    byte[] lindex(byte[] key, long index);
 
-  Long lrem(byte[] key, long count, byte[] value);
+    String lset(byte[] key, long index, byte[] value);
 
-  byte[] lpop(byte[] key);
+    Long lrem(byte[] key, long count, byte[] value);
 
-  byte[] rpop(byte[] key);
+    byte[] lpop(byte[] key);
 
-  Long sadd(byte[] key, byte[]... member);
+    byte[] rpop(byte[] key);
 
-  Set<byte[]> smembers(byte[] key);
+    Long sadd(byte[] key, byte[]... member);
 
-  Long srem(byte[] key, byte[]... member);
+    Set<byte[]> smembers(byte[] key);
 
-  byte[] spop(byte[] key);
+    Long srem(byte[] key, byte[]... member);
 
-  Set<byte[]> spop(byte[] key, long count);
+    byte[] spop(byte[] key);
 
-  Long scard(byte[] key);
+    Set<byte[]> spop(byte[] key, long count);
 
-  Boolean sismember(byte[] key, byte[] member);
+    Long scard(byte[] key);
 
-  byte[] srandmember(byte[] key);
+    Boolean sismember(byte[] key, byte[] member);
 
-  List<byte[]> srandmember(byte[] key, int count);
+    byte[] srandmember(byte[] key);
 
-  Long strlen(byte[] key);
+    List<byte[]> srandmember(byte[] key, int count);
 
-  Long zadd(byte[] key, double score, byte[] member);
+    Long strlen(byte[] key);
 
-  Long zadd(byte[] key, double score, byte[] member, ZAddParams params);
+    Long zadd(byte[] key, double score, byte[] member);
 
-  Long zadd(byte[] key, Map<byte[], Double> scoreMembers);
+    Long zadd(byte[] key, double score, byte[] member, ZAddParams params);
 
-  Long zadd(byte[] key, Map<byte[], Double> scoreMembers, ZAddParams params);
+    Long zadd(byte[] key, Map<byte[], Double> scoreMembers);
 
-  Set<byte[]> zrange(byte[] key, long start, long stop);
+    Long zadd(byte[] key, Map<byte[], Double> scoreMembers, ZAddParams params);
 
-  Long zrem(byte[] key, byte[]... members);
+    Set<byte[]> zrange(byte[] key, long start, long stop);
 
-  Double zincrby(byte[] key, double increment, byte[] member);
+    Long zrem(byte[] key, byte[]... members);
 
-  Double zincrby(byte[] key, double increment, byte[] member, ZIncrByParams params);
+    Double zincrby(byte[] key, double increment, byte[] member);
 
-  Long zrank(byte[] key, byte[] member);
+    Double zincrby(byte[] key, double increment, byte[] member, ZIncrByParams params);
 
-  Long zrevrank(byte[] key, byte[] member);
+    Long zrank(byte[] key, byte[] member);
 
-  Set<byte[]> zrevrange(byte[] key, long start, long stop);
+    Long zrevrank(byte[] key, byte[] member);
 
-  Set<Tuple> zrangeWithScores(byte[] key, long start, long stop);
+    Set<byte[]> zrevrange(byte[] key, long start, long stop);
 
-  Set<Tuple> zrevrangeWithScores(byte[] key, long start, long stop);
+    Set<Tuple> zrangeWithScores(byte[] key, long start, long stop);
 
-  Long zcard(byte[] key);
+    Set<Tuple> zrevrangeWithScores(byte[] key, long start, long stop);
 
-  Double zscore(byte[] key, byte[] member);
+    Long zcard(byte[] key);
 
-  List<byte[]> sort(byte[] key);
+    Double zscore(byte[] key, byte[] member);
 
-  List<byte[]> sort(byte[] key, SortingParams sortingParameters);
+    List<byte[]> sort(byte[] key);
 
-  Long zcount(byte[] key, double min, double max);
+    List<byte[]> sort(byte[] key, SortingParams sortingParameters);
 
-  Long zcount(byte[] key, byte[] min, byte[] max);
+    Long zcount(byte[] key, double min, double max);
 
-  Set<byte[]> zrangeByScore(byte[] key, double min, double max);
+    Long zcount(byte[] key, byte[] min, byte[] max);
 
-  Set<byte[]> zrangeByScore(byte[] key, byte[] min, byte[] max);
+    Set<byte[]> zrangeByScore(byte[] key, double min, double max);
 
-  Set<byte[]> zrevrangeByScore(byte[] key, double max, double min);
+    Set<byte[]> zrangeByScore(byte[] key, byte[] min, byte[] max);
 
-  Set<byte[]> zrangeByScore(byte[] key, double min, double max, int offset, int count);
+    Set<byte[]> zrevrangeByScore(byte[] key, double max, double min);
 
-  Set<byte[]> zrevrangeByScore(byte[] key, byte[] max, byte[] min);
+    Set<byte[]> zrangeByScore(byte[] key, double min, double max, int offset, int count);
 
-  Set<byte[]> zrangeByScore(byte[] key, byte[] min, byte[] max, int offset, int count);
+    Set<byte[]> zrevrangeByScore(byte[] key, byte[] max, byte[] min);
 
-  Set<byte[]> zrevrangeByScore(byte[] key, double max, double min, int offset, int count);
+    Set<byte[]> zrangeByScore(byte[] key, byte[] min, byte[] max, int offset, int count);
 
-  Set<Tuple> zrangeByScoreWithScores(byte[] key, double min, double max);
+    Set<byte[]> zrevrangeByScore(byte[] key, double max, double min, int offset, int count);
 
-  Set<Tuple> zrevrangeByScoreWithScores(byte[] key, double max, double min);
+    Set<Tuple> zrangeByScoreWithScores(byte[] key, double min, double max);
 
-  Set<Tuple> zrangeByScoreWithScores(byte[] key, double min, double max, int offset, int count);
+    Set<Tuple> zrevrangeByScoreWithScores(byte[] key, double max, double min);
 
-  Set<byte[]> zrevrangeByScore(byte[] key, byte[] max, byte[] min, int offset, int count);
+    Set<Tuple> zrangeByScoreWithScores(byte[] key, double min, double max, int offset, int count);
 
-  Set<Tuple> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max);
+    Set<byte[]> zrevrangeByScore(byte[] key, byte[] max, byte[] min, int offset, int count);
 
-  Set<Tuple> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min);
+    Set<Tuple> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max);
 
-  Set<Tuple> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max, int offset, int count);
+    Set<Tuple> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min);
 
-  Set<Tuple> zrevrangeByScoreWithScores(byte[] key, double max, double min, int offset, int count);
+    Set<Tuple> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max, int offset, int count);
 
-  Set<Tuple> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min, int offset, int count);
+    Set<Tuple> zrevrangeByScoreWithScores(byte[] key, double max, double min, int offset, int count);
 
-  Long zremrangeByRank(byte[] key, long start, long stop);
+    Set<Tuple> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min, int offset, int count);
 
-  Long zremrangeByScore(byte[] key, double min, double max);
+    Long zremrangeByRank(byte[] key, long start, long stop);
 
-  Long zremrangeByScore(byte[] key, byte[] min, byte[] max);
+    Long zremrangeByScore(byte[] key, double min, double max);
 
-  Long zlexcount(byte[] key, byte[] min, byte[] max);
+    Long zremrangeByScore(byte[] key, byte[] min, byte[] max);
 
-  Set<byte[]> zrangeByLex(byte[] key, byte[] min, byte[] max);
+    Long zlexcount(byte[] key, byte[] min, byte[] max);
 
-  Set<byte[]> zrangeByLex(byte[] key, byte[] min, byte[] max, int offset,
-      int count);
+    Set<byte[]> zrangeByLex(byte[] key, byte[] min, byte[] max);
 
-  Set<byte[]> zrevrangeByLex(byte[] key, byte[] max, byte[] min);
+    Set<byte[]> zrangeByLex(byte[] key, byte[] min, byte[] max, int offset,
+                            int count);
 
-  Set<byte[]> zrevrangeByLex(byte[] key, byte[] max, byte[] min, int offset,
-      int count);
+    Set<byte[]> zrevrangeByLex(byte[] key, byte[] max, byte[] min);
 
-  Long zremrangeByLex(byte[] key, byte[] min, byte[] max);
+    Set<byte[]> zrevrangeByLex(byte[] key, byte[] max, byte[] min, int offset,
+                               int count);
 
-  Long linsert(byte[] key, ListPosition where, byte[] pivot, byte[] value);
+    Long zremrangeByLex(byte[] key, byte[] min, byte[] max);
 
-  Long lpushx(byte[] key, byte[]... arg);
+    Long linsert(byte[] key, ListPosition where, byte[] pivot, byte[] value);
 
-  Long rpushx(byte[] key, byte[]... arg);
+    Long lpushx(byte[] key, byte[]... arg);
 
-  Long del(byte[] key);
+    Long rpushx(byte[] key, byte[]... arg);
 
-  Long unlink(byte[] key);
+    Long del(byte[] key);
 
-  byte[] echo(byte[] arg);
+    Long unlink(byte[] key);
 
-  Long bitcount(byte[] key);
+    byte[] echo(byte[] arg);
 
-  Long bitcount(byte[] key, long start, long end);
+    Long bitcount(byte[] key);
 
-  Long pfadd(byte[] key, byte[]... elements);
+    Long bitcount(byte[] key, long start, long end);
 
-  long pfcount(byte[] key);
+    Long pfadd(byte[] key, byte[]... elements);
 
-  // Geo Commands
+    long pfcount(byte[] key);
 
-  Long geoadd(byte[] key, double longitude, double latitude, byte[] member);
+    // Geo Commands
 
-  Long geoadd(byte[] key, Map<byte[], GeoCoordinate> memberCoordinateMap);
+    Long geoadd(byte[] key, double longitude, double latitude, byte[] member);
 
-  Double geodist(byte[] key, byte[] member1, byte[] member2);
+    Long geoadd(byte[] key, Map<byte[], GeoCoordinate> memberCoordinateMap);
 
-  Double geodist(byte[] key, byte[] member1, byte[] member2, GeoUnit unit);
+    Double geodist(byte[] key, byte[] member1, byte[] member2);
 
-  List<byte[]> geohash(byte[] key, byte[]... members);
+    Double geodist(byte[] key, byte[] member1, byte[] member2, GeoUnit unit);
 
-  List<GeoCoordinate> geopos(byte[] key, byte[]... members);
+    List<byte[]> geohash(byte[] key, byte[]... members);
 
-  List<GeoRadiusResponse> georadius(byte[] key, double longitude, double latitude, double radius,
-      GeoUnit unit);
+    List<GeoCoordinate> geopos(byte[] key, byte[]... members);
 
-  List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius,
-      GeoUnit unit);
+    List<GeoRadiusResponse> georadius(byte[] key, double longitude, double latitude, double radius,
+                                      GeoUnit unit);
 
-  List<GeoRadiusResponse> georadius(byte[] key, double longitude, double latitude, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius,
+                                              GeoUnit unit);
 
-  List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    List<GeoRadiusResponse> georadius(byte[] key, double longitude, double latitude, double radius,
+                                      GeoUnit unit, GeoRadiusParam param);
 
-  List<GeoRadiusResponse> georadiusByMember(byte[] key, byte[] member, double radius, GeoUnit unit);
+    List<GeoRadiusResponse> georadiusReadonly(byte[] key, double longitude, double latitude, double radius,
+                                              GeoUnit unit, GeoRadiusParam param);
 
-  List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit);
+    List<GeoRadiusResponse> georadiusByMember(byte[] key, byte[] member, double radius, GeoUnit unit);
 
-  List<GeoRadiusResponse> georadiusByMember(byte[] key, byte[] member, double radius, GeoUnit unit,
-      GeoRadiusParam param);
+    List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit);
 
-  List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit,
-      GeoRadiusParam param);
+    List<GeoRadiusResponse> georadiusByMember(byte[] key, byte[] member, double radius, GeoUnit unit,
+                                              GeoRadiusParam param);
 
-  ScanResult<Map.Entry<byte[], byte[]>> hscan(byte[] key, byte[] cursor);
+    List<GeoRadiusResponse> georadiusByMemberReadonly(byte[] key, byte[] member, double radius, GeoUnit unit,
+                                                      GeoRadiusParam param);
 
-  ScanResult<Map.Entry<byte[], byte[]>> hscan(byte[] key, byte[] cursor, ScanParams params);
+    ScanResult<Map.Entry<byte[], byte[]>> hscan(byte[] key, byte[] cursor);
 
-  ScanResult<byte[]> sscan(byte[] key, byte[] cursor);
+    ScanResult<Map.Entry<byte[], byte[]>> hscan(byte[] key, byte[] cursor, ScanParams params);
 
-  ScanResult<byte[]> sscan(byte[] key, byte[] cursor, ScanParams params);
+    ScanResult<byte[]> sscan(byte[] key, byte[] cursor);
 
-  ScanResult<Tuple> zscan(byte[] key, byte[] cursor);
+    ScanResult<byte[]> sscan(byte[] key, byte[] cursor, ScanParams params);
 
-  ScanResult<Tuple> zscan(byte[] key, byte[] cursor, ScanParams params);
+    ScanResult<Tuple> zscan(byte[] key, byte[] cursor);
 
-  /**
-   * Executes BITFIELD Redis command
-   * @param key
-   * @param arguments
-   */
-  List<Long> bitfield(byte[] key, byte[]... arguments);
-  
-  /**
-   * Used for HSTRLEN Redis command
-   * @param key 
-   * @param field
-   */
-  Long hstrlen(byte[] key, byte[] field);
+    ScanResult<Tuple> zscan(byte[] key, byte[] cursor, ScanParams params);
+
+    /**
+     * Executes BITFIELD Redis command
+     *
+     * @param key
+     * @param arguments
+     */
+    List<Long> bitfield(byte[] key, byte[]... arguments);
+
+    /**
+     * Used for HSTRLEN Redis command
+     *
+     * @param key
+     * @param field
+     */
+    Long hstrlen(byte[] key, byte[] field);
 
 }

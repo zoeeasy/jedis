@@ -5,45 +5,45 @@ import java.util.List;
 import redis.clients.jedis.ClusterReset;
 
 public interface ClusterCommands {
-  String clusterNodes();
+    String clusterNodes();
 
-  String clusterMeet(String ip, int port);
+    String clusterMeet(String ip, int port);
 
-  String clusterAddSlots(int... slots);
+    String clusterAddSlots(int... slots);
 
-  String clusterDelSlots(int... slots);
+    String clusterDelSlots(int... slots);
 
-  String clusterInfo();
+    String clusterInfo();
 
-  List<String> clusterGetKeysInSlot(int slot, int count);
+    List<String> clusterGetKeysInSlot(int slot, int count);
 
-  String clusterSetSlotNode(int slot, String nodeId);
+    String clusterSetSlotNode(int slot, String nodeId);
 
-  String clusterSetSlotMigrating(int slot, String nodeId);
+    String clusterSetSlotMigrating(int slot, String nodeId);
 
-  String clusterSetSlotImporting(int slot, String nodeId);
+    String clusterSetSlotImporting(int slot, String nodeId);
 
-  String clusterSetSlotStable(int slot);
+    String clusterSetSlotStable(int slot);
 
-  String clusterForget(String nodeId);
+    String clusterForget(String nodeId);
 
-  String clusterFlushSlots();
+    String clusterFlushSlots();
 
-  Long clusterKeySlot(String key);
+    Long clusterKeySlot(String key);
 
-  Long clusterCountKeysInSlot(int slot);
+    Long clusterCountKeysInSlot(int slot);
 
-  String clusterSaveConfig();
+    String clusterSaveConfig();
 
-  String clusterReplicate(String nodeId);
+    String clusterReplicate(String nodeId);
 
-  List<String> clusterSlaves(String nodeId);
+    List<String> clusterSlaves(String nodeId);
 
-  String clusterFailover();
+    String clusterFailover();
 
-  List<Object> clusterSlots();
+    List<Object> clusterSlots();
 
-  String clusterReset(ClusterReset resetType);
+    String clusterReset(ClusterReset resetType);
 
-  String readonly();
+    String readonly();
 }

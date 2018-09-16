@@ -1,20 +1,21 @@
 package redis.clients.jedis.util;
 
 public abstract class ShardInfo<T> {
-  private int weight;
 
-  public ShardInfo() {
-  }
+    private int weight;
 
-  public ShardInfo(int weight) {
-    this.weight = weight;
-  }
+    public ShardInfo() {
+    }
 
-  public int getWeight() {
-    return this.weight;
-  }
+    public ShardInfo(int weight) {
+        this.weight = weight;
+    }
 
-  protected abstract T createResource();
+    public int getWeight() {
+        return this.weight;
+    }
 
-  public abstract String getName();
+    protected abstract T createResource();
+
+    public abstract String getName();
 }

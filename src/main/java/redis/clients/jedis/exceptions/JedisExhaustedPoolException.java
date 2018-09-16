@@ -6,15 +6,15 @@ package redis.clients.jedis.exceptions;
  */
 public class JedisExhaustedPoolException extends JedisException {
 
-  public JedisExhaustedPoolException(String message) {
-    super(message);
-  }
+    public JedisExhaustedPoolException(String message) {
+        super(message);
+    }
 
-  public JedisExhaustedPoolException(Throwable e) {
-    super(e);
-  }
+    public JedisExhaustedPoolException(Throwable e) {
+        super(e);
+    }
 
-  public JedisExhaustedPoolException(String message, Throwable cause) {
-    super(message, cause);
-  }
+    public JedisExhaustedPoolException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

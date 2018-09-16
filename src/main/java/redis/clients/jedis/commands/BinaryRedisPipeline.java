@@ -16,289 +16,290 @@ import java.util.Map;
 import java.util.Set;
 
 public interface BinaryRedisPipeline {
-  Response<Long> append(byte[] key, byte[] value);
 
-  Response<List<byte[]>> blpop(byte[] arg);
+    Response<Long> append(byte[] key, byte[] value);
 
-  Response<List<byte[]>> brpop(byte[] arg);
+    Response<List<byte[]>> blpop(byte[] arg);
 
-  Response<Long> decr(byte[] key);
+    Response<List<byte[]>> brpop(byte[] arg);
 
-  Response<Long> decrBy(byte[] key, long decrement);
+    Response<Long> decr(byte[] key);
 
-  Response<Long> del(byte[] keys);
+    Response<Long> decrBy(byte[] key, long decrement);
 
-  Response<Long> unlink(byte[] keys);
+    Response<Long> del(byte[] keys);
 
-  Response<byte[]> echo(byte[] string);
+    Response<Long> unlink(byte[] keys);
 
-  Response<Boolean> exists(byte[] key);
+    Response<byte[]> echo(byte[] string);
 
-  Response<Long> expire(byte[] key, int seconds);
+    Response<Boolean> exists(byte[] key);
 
-  Response<Long> pexpire(byte[] key, long milliseconds);
+    Response<Long> expire(byte[] key, int seconds);
 
-  Response<Long> expireAt(byte[] key, long unixTime);
+    Response<Long> pexpire(byte[] key, long milliseconds);
 
-  Response<Long> pexpireAt(byte[] key, long millisecondsTimestamp);
+    Response<Long> expireAt(byte[] key, long unixTime);
 
-  Response<byte[]> get(byte[] key);
+    Response<Long> pexpireAt(byte[] key, long millisecondsTimestamp);
 
-  Response<Boolean> getbit(byte[] key, long offset);
+    Response<byte[]> get(byte[] key);
 
-  Response<byte[]> getSet(byte[] key, byte[] value);
+    Response<Boolean> getbit(byte[] key, long offset);
 
-  Response<byte[]> getrange(byte[] key, long startOffset, long endOffset);
+    Response<byte[]> getSet(byte[] key, byte[] value);
 
-  Response<Long> hdel(byte[] key, byte[]... field);
+    Response<byte[]> getrange(byte[] key, long startOffset, long endOffset);
 
-  Response<Boolean> hexists(byte[] key, byte[] field);
+    Response<Long> hdel(byte[] key, byte[]... field);
 
-  Response<byte[]> hget(byte[] key, byte[] field);
+    Response<Boolean> hexists(byte[] key, byte[] field);
 
-  Response<Map<byte[], byte[]>> hgetAll(byte[] key);
+    Response<byte[]> hget(byte[] key, byte[] field);
 
-  Response<Long> hincrBy(byte[] key, byte[] field, long value);
+    Response<Map<byte[], byte[]>> hgetAll(byte[] key);
 
-  Response<Set<byte[]>> hkeys(byte[] key);
+    Response<Long> hincrBy(byte[] key, byte[] field, long value);
 
-  Response<Long> hlen(byte[] key);
+    Response<Set<byte[]>> hkeys(byte[] key);
 
-  Response<List<byte[]>> hmget(byte[] key, byte[]... fields);
+    Response<Long> hlen(byte[] key);
 
-  Response<String> hmset(byte[] key, Map<byte[], byte[]> hash);
+    Response<List<byte[]>> hmget(byte[] key, byte[]... fields);
 
-  Response<Long> hset(byte[] key, byte[] field, byte[] value);
+    Response<String> hmset(byte[] key, Map<byte[], byte[]> hash);
 
-  Response<Long> hset(byte[] key, Map<byte[], byte[]> hash);
+    Response<Long> hset(byte[] key, byte[] field, byte[] value);
 
-  Response<Long> hsetnx(byte[] key, byte[] field, byte[] value);
+    Response<Long> hset(byte[] key, Map<byte[], byte[]> hash);
 
-  Response<List<byte[]>> hvals(byte[] key);
+    Response<Long> hsetnx(byte[] key, byte[] field, byte[] value);
 
-  Response<Long> incr(byte[] key);
+    Response<List<byte[]>> hvals(byte[] key);
 
-  Response<Long> incrBy(byte[] key, long increment);
+    Response<Long> incr(byte[] key);
 
-  Response<byte[]> lindex(byte[] key, long index);
+    Response<Long> incrBy(byte[] key, long increment);
 
-  Response<Long> linsert(byte[] key, ListPosition where, byte[] pivot, byte[] value);
+    Response<byte[]> lindex(byte[] key, long index);
 
-  Response<Long> llen(byte[] key);
+    Response<Long> linsert(byte[] key, ListPosition where, byte[] pivot, byte[] value);
 
-  Response<byte[]> lpop(byte[] key);
+    Response<Long> llen(byte[] key);
 
-  Response<Long> lpush(byte[] key, byte[]... string);
+    Response<byte[]> lpop(byte[] key);
 
-  Response<Long> lpushx(byte[] key, byte[]... bytes);
+    Response<Long> lpush(byte[] key, byte[]... string);
 
-  Response<List<byte[]>> lrange(byte[] key, long start, long stop);
+    Response<Long> lpushx(byte[] key, byte[]... bytes);
 
-  Response<Long> lrem(byte[] key, long count, byte[] value);
+    Response<List<byte[]>> lrange(byte[] key, long start, long stop);
 
-  Response<String> lset(byte[] key, long index, byte[] value);
+    Response<Long> lrem(byte[] key, long count, byte[] value);
 
-  Response<String> ltrim(byte[] key, long start, long stop);
+    Response<String> lset(byte[] key, long index, byte[] value);
 
-  Response<Long> move(byte[] key, int dbIndex);
+    Response<String> ltrim(byte[] key, long start, long stop);
 
-  Response<Long> persist(byte[] key);
+    Response<Long> move(byte[] key, int dbIndex);
 
-  Response<byte[]> rpop(byte[] key);
+    Response<Long> persist(byte[] key);
 
-  Response<Long> rpush(byte[] key, byte[]... string);
+    Response<byte[]> rpop(byte[] key);
 
-  Response<Long> rpushx(byte[] key, byte[]... string);
+    Response<Long> rpush(byte[] key, byte[]... string);
 
-  Response<Long> sadd(byte[] key, byte[]... member);
+    Response<Long> rpushx(byte[] key, byte[]... string);
 
-  Response<Long> scard(byte[] key);
+    Response<Long> sadd(byte[] key, byte[]... member);
 
-  Response<String> set(byte[] key, byte[] value);
+    Response<Long> scard(byte[] key);
 
-  Response<Boolean> setbit(byte[] key, long offset, byte[] value);
+    Response<String> set(byte[] key, byte[] value);
 
-  Response<Long> setrange(byte[] key, long offset, byte[] value);
+    Response<Boolean> setbit(byte[] key, long offset, byte[] value);
 
-  Response<String> setex(byte[] key, int seconds, byte[] value);
+    Response<Long> setrange(byte[] key, long offset, byte[] value);
 
-  Response<Long> setnx(byte[] key, byte[] value);
+    Response<String> setex(byte[] key, int seconds, byte[] value);
 
-  Response<Long> setrange(String key, long offset, String value);
+    Response<Long> setnx(byte[] key, byte[] value);
 
-  Response<Set<byte[]>> smembers(byte[] key);
+    Response<Long> setrange(String key, long offset, String value);
 
-  Response<Boolean> sismember(byte[] key, byte[] member);
+    Response<Set<byte[]>> smembers(byte[] key);
 
-  Response<List<byte[]>> sort(byte[] key);
+    Response<Boolean> sismember(byte[] key, byte[] member);
 
-  Response<List<byte[]>> sort(byte[] key, SortingParams sortingParameters);
+    Response<List<byte[]>> sort(byte[] key);
 
-  Response<byte[]> spop(byte[] key);
+    Response<List<byte[]>> sort(byte[] key, SortingParams sortingParameters);
 
-  Response<Set<byte[]>> spop(byte[] key, long count);
+    Response<byte[]> spop(byte[] key);
 
-  Response<byte[]> srandmember(byte[] key);
+    Response<Set<byte[]>> spop(byte[] key, long count);
 
-  Response<Long> srem(byte[] key, byte[]... member);
+    Response<byte[]> srandmember(byte[] key);
 
-  Response<Long> strlen(byte[] key);
+    Response<Long> srem(byte[] key, byte[]... member);
 
-  Response<String> substr(byte[] key, int start, int end);
+    Response<Long> strlen(byte[] key);
 
-  Response<Long> touch(byte[] keys);
+    Response<String> substr(byte[] key, int start, int end);
 
-  Response<Long> ttl(byte[] key);
+    Response<Long> touch(byte[] keys);
 
-  Response<Long> pttl(byte[] key);
+    Response<Long> ttl(byte[] key);
 
-  Response<String> type(byte[] key);
+    Response<Long> pttl(byte[] key);
 
-  Response<Long> zadd(byte[] key, double score, byte[] member);
+    Response<String> type(byte[] key);
 
-  Response<Long> zadd(byte[] key, double score, byte[] member, ZAddParams params);
+    Response<Long> zadd(byte[] key, double score, byte[] member);
 
-  Response<Long> zadd(byte[] key, Map<byte[], Double> scoreMembers);
+    Response<Long> zadd(byte[] key, double score, byte[] member, ZAddParams params);
 
-  Response<Long> zadd(byte[] key, Map<byte[], Double> scoreMembers, ZAddParams params);
+    Response<Long> zadd(byte[] key, Map<byte[], Double> scoreMembers);
 
-  Response<Long> zcard(byte[] key);
+    Response<Long> zadd(byte[] key, Map<byte[], Double> scoreMembers, ZAddParams params);
 
-  Response<Long> zcount(byte[] key, double min, double max);
+    Response<Long> zcard(byte[] key);
 
-  Response<Long> zcount(byte[] key, byte[] min, byte[] max);
+    Response<Long> zcount(byte[] key, double min, double max);
 
-  Response<Double> zincrby(byte[] key, double increment, byte[] member);
+    Response<Long> zcount(byte[] key, byte[] min, byte[] max);
 
-  Response<Double> zincrby(byte[] key, double increment, byte[] member, ZIncrByParams params);
+    Response<Double> zincrby(byte[] key, double increment, byte[] member);
 
-  Response<Set<byte[]>> zrange(byte[] key, long start, long stop);
+    Response<Double> zincrby(byte[] key, double increment, byte[] member, ZIncrByParams params);
 
-  Response<Set<byte[]>> zrangeByScore(byte[] key, double min, double max);
+    Response<Set<byte[]>> zrange(byte[] key, long start, long stop);
 
-  Response<Set<byte[]>> zrangeByScore(byte[] key, byte[] min, byte[] max);
+    Response<Set<byte[]>> zrangeByScore(byte[] key, double min, double max);
 
-  Response<Set<byte[]>> zrangeByScore(byte[] key, double min, double max, int offset, int count);
+    Response<Set<byte[]>> zrangeByScore(byte[] key, byte[] min, byte[] max);
 
-  Response<Set<byte[]>> zrangeByScore(byte[] key, byte[] min, byte[] max, int offset, int count);
+    Response<Set<byte[]>> zrangeByScore(byte[] key, double min, double max, int offset, int count);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, double min, double max);
+    Response<Set<byte[]>> zrangeByScore(byte[] key, byte[] min, byte[] max, int offset, int count);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max);
+    Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, double min, double max);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, double min, double max, int offset,
-      int count);
+    Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max);
 
-  Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max, int offset,
-      int count);
+    Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, double min, double max, int offset,
+                                                 int count);
 
-  Response<Set<byte[]>> zrevrangeByScore(byte[] key, double max, double min);
+    Response<Set<Tuple>> zrangeByScoreWithScores(byte[] key, byte[] min, byte[] max, int offset,
+                                                 int count);
 
-  Response<Set<byte[]>> zrevrangeByScore(byte[] key, byte[] max, byte[] min);
+    Response<Set<byte[]>> zrevrangeByScore(byte[] key, double max, double min);
 
-  Response<Set<byte[]>> zrevrangeByScore(byte[] key, double max, double min, int offset, int count);
+    Response<Set<byte[]>> zrevrangeByScore(byte[] key, byte[] max, byte[] min);
 
-  Response<Set<byte[]>> zrevrangeByScore(byte[] key, byte[] max, byte[] min, int offset, int count);
+    Response<Set<byte[]>> zrevrangeByScore(byte[] key, double max, double min, int offset, int count);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, double max, double min);
+    Response<Set<byte[]>> zrevrangeByScore(byte[] key, byte[] max, byte[] min, int offset, int count);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, double max, double min);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, double max, double min, int offset,
-      int count);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min);
 
-  Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min, int offset,
-      int count);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, double max, double min, int offset,
+                                                    int count);
 
-  Response<Set<Tuple>> zrangeWithScores(byte[] key, long start, long stop);
+    Response<Set<Tuple>> zrevrangeByScoreWithScores(byte[] key, byte[] max, byte[] min, int offset,
+                                                    int count);
 
-  Response<Long> zrank(byte[] key, byte[] member);
+    Response<Set<Tuple>> zrangeWithScores(byte[] key, long start, long stop);
 
-  Response<Long> zrem(byte[] key, byte[]... members);
+    Response<Long> zrank(byte[] key, byte[] member);
 
-  Response<Long> zremrangeByRank(byte[] key, long start, long stop);
+    Response<Long> zrem(byte[] key, byte[]... members);
 
-  Response<Long> zremrangeByScore(byte[] key, double min, double max);
+    Response<Long> zremrangeByRank(byte[] key, long start, long stop);
 
-  Response<Long> zremrangeByScore(byte[] key, byte[] min, byte[] max);
+    Response<Long> zremrangeByScore(byte[] key, double min, double max);
 
-  Response<Set<byte[]>> zrevrange(byte[] key, long start, long stop);
+    Response<Long> zremrangeByScore(byte[] key, byte[] min, byte[] max);
 
-  Response<Set<Tuple>> zrevrangeWithScores(byte[] key, long start, long stop);
+    Response<Set<byte[]>> zrevrange(byte[] key, long start, long stop);
 
-  Response<Long> zrevrank(byte[] key, byte[] member);
+    Response<Set<Tuple>> zrevrangeWithScores(byte[] key, long start, long stop);
 
-  Response<Double> zscore(byte[] key, byte[] member);
+    Response<Long> zrevrank(byte[] key, byte[] member);
 
-  Response<Long> zlexcount(byte[] key, byte[] min, byte[] max);
+    Response<Double> zscore(byte[] key, byte[] member);
 
-  Response<Set<byte[]>> zrangeByLex(byte[] key, byte[] min, byte[] max);
+    Response<Long> zlexcount(byte[] key, byte[] min, byte[] max);
 
-  Response<Set<byte[]>> zrangeByLex(byte[] key, byte[] min, byte[] max,
-      int offset, int count);
+    Response<Set<byte[]>> zrangeByLex(byte[] key, byte[] min, byte[] max);
 
-  Response<Set<byte[]>> zrevrangeByLex(byte[] key, byte[] max, byte[] min);
+    Response<Set<byte[]>> zrangeByLex(byte[] key, byte[] min, byte[] max,
+                                      int offset, int count);
 
-  Response<Set<byte[]>> zrevrangeByLex(byte[] key, byte[] max, byte[] min,
-      int offset, int count);
+    Response<Set<byte[]>> zrevrangeByLex(byte[] key, byte[] max, byte[] min);
 
-  Response<Long> zremrangeByLex(byte[] key, byte[] min, byte[] max);
+    Response<Set<byte[]>> zrevrangeByLex(byte[] key, byte[] max, byte[] min,
+                                         int offset, int count);
 
-  Response<Long> bitcount(byte[] key);
+    Response<Long> zremrangeByLex(byte[] key, byte[] min, byte[] max);
 
-  Response<Long> bitcount(byte[] key, long start, long end);
+    Response<Long> bitcount(byte[] key);
 
-  Response<Long> pfadd(byte[] key, byte[]... elements);
+    Response<Long> bitcount(byte[] key, long start, long end);
 
-  Response<Long> pfcount(byte[] key);
+    Response<Long> pfadd(byte[] key, byte[]... elements);
 
-  Response<byte[]> dump(byte[] key);
+    Response<Long> pfcount(byte[] key);
 
-  Response<String> restore(byte[] key, int ttl, byte[] serializedValue);
+    Response<byte[]> dump(byte[] key);
 
-  Response<String> restoreReplace(byte[] key, int ttl, byte[] serializedValue);
+    Response<String> restore(byte[] key, int ttl, byte[] serializedValue);
 
-  Response<String> migrate(String host, int port, byte[] key, int destinationDB, int timeout);
+    Response<String> restoreReplace(byte[] key, int ttl, byte[] serializedValue);
 
-  // Geo Commands
+    Response<String> migrate(String host, int port, byte[] key, int destinationDB, int timeout);
 
-  Response<Long> geoadd(byte[] key, double longitude, double latitude, byte[] member);
+    // Geo Commands
 
-  Response<Long> geoadd(byte[] key, Map<byte[], GeoCoordinate> memberCoordinateMap);
+    Response<Long> geoadd(byte[] key, double longitude, double latitude, byte[] member);
 
-  Response<Double> geodist(byte[] key, byte[] member1, byte[] member2);
+    Response<Long> geoadd(byte[] key, Map<byte[], GeoCoordinate> memberCoordinateMap);
 
-  Response<Double> geodist(byte[] key, byte[] member1, byte[] member2, GeoUnit unit);
+    Response<Double> geodist(byte[] key, byte[] member1, byte[] member2);
 
-  Response<List<byte[]>> geohash(byte[] key, byte[]... members);
+    Response<Double> geodist(byte[] key, byte[] member1, byte[] member2, GeoUnit unit);
 
-  Response<List<GeoCoordinate>> geopos(byte[] key, byte[]... members);
+    Response<List<byte[]>> geohash(byte[] key, byte[]... members);
 
-  Response<List<GeoRadiusResponse>> georadius(byte[] key, double longitude, double latitude,
-      double radius, GeoUnit unit);
+    Response<List<GeoCoordinate>> geopos(byte[] key, byte[]... members);
 
-  Response<List<GeoRadiusResponse>> georadiusReadonly(byte[] key, double longitude, double latitude,
-      double radius, GeoUnit unit);
+    Response<List<GeoRadiusResponse>> georadius(byte[] key, double longitude, double latitude,
+                                                double radius, GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadius(byte[] key, double longitude, double latitude,
-      double radius, GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadiusReadonly(byte[] key, double longitude, double latitude,
+                                                        double radius, GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadiusReadonly(byte[] key, double longitude, double latitude,
-      double radius, GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadius(byte[] key, double longitude, double latitude,
+                                                double radius, GeoUnit unit, GeoRadiusParam param);
 
-  Response<List<GeoRadiusResponse>> georadiusByMember(byte[] key, byte[] member, double radius,
-      GeoUnit unit);
+    Response<List<GeoRadiusResponse>> georadiusReadonly(byte[] key, double longitude, double latitude,
+                                                        double radius, GeoUnit unit, GeoRadiusParam param);
 
-  Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
-      GeoUnit unit);
-  
-  Response<List<GeoRadiusResponse>> georadiusByMember(byte[] key, byte[] member, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadiusByMember(byte[] key, byte[] member, double radius,
+                                                        GeoUnit unit);
 
-  Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
-      GeoUnit unit, GeoRadiusParam param);
+    Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
+                                                                GeoUnit unit);
 
-  Response<List<Long>> bitfield(byte[] key, byte[]... elements);
+    Response<List<GeoRadiusResponse>> georadiusByMember(byte[] key, byte[] member, double radius,
+                                                        GeoUnit unit, GeoRadiusParam param);
 
-  Response<Long> hstrlen(byte[] key, byte[] field);
+    Response<List<GeoRadiusResponse>> georadiusByMemberReadonly(byte[] key, byte[] member, double radius,
+                                                                GeoUnit unit, GeoRadiusParam param);
+
+    Response<List<Long>> bitfield(byte[] key, byte[]... elements);
+
+    Response<Long> hstrlen(byte[] key, byte[] field);
 }

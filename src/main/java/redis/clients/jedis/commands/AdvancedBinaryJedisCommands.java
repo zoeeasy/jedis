@@ -7,37 +7,37 @@ import redis.clients.jedis.params.ClientKillParams;
 
 public interface AdvancedBinaryJedisCommands {
 
-  List<byte[]> configGet(byte[] pattern);
+    List<byte[]> configGet(byte[] pattern);
 
-  byte[] configSet(byte[] parameter, byte[] value);
+    byte[] configSet(byte[] parameter, byte[] value);
 
-  String slowlogReset();
+    String slowlogReset();
 
-  Long slowlogLen();
+    Long slowlogLen();
 
-  List<byte[]> slowlogGetBinary();
+    List<byte[]> slowlogGetBinary();
 
-  List<byte[]> slowlogGetBinary(long entries);
+    List<byte[]> slowlogGetBinary(long entries);
 
-  Long objectRefcount(byte[] key);
+    Long objectRefcount(byte[] key);
 
-  byte[] objectEncoding(byte[] key);
+    byte[] objectEncoding(byte[] key);
 
-  Long objectIdletime(byte[] key);
+    Long objectIdletime(byte[] key);
 
-  String migrate(String host, int port, byte[] key, int destinationDB, int timeout);
+    String migrate(String host, int port, byte[] key, int destinationDB, int timeout);
 
-  String migrate(String host, int port, int destinationDB, int timeout, MigrateParams params, byte[]... keys);
+    String migrate(String host, int port, int destinationDB, int timeout, MigrateParams params, byte[]... keys);
 
-  String clientKill(byte[] ipPort);
+    String clientKill(byte[] ipPort);
 
-  String clientKill(String ip, int port);
+    String clientKill(String ip, int port);
 
-  Long clientKill(ClientKillParams params);
+    Long clientKill(ClientKillParams params);
 
-  byte[] clientGetnameBinary();
+    byte[] clientGetnameBinary();
 
-  byte[] clientListBinary();
+    byte[] clientListBinary();
 
-  String clientSetname(byte[] name);
+    String clientSetname(byte[] name);
 }

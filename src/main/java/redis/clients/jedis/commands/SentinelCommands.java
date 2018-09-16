@@ -4,19 +4,20 @@ import java.util.List;
 import java.util.Map;
 
 public interface SentinelCommands {
-  List<Map<String, String>> sentinelMasters();
 
-  List<String> sentinelGetMasterAddrByName(String masterName);
+    List<Map<String, String>> sentinelMasters();
 
-  Long sentinelReset(String pattern);
+    List<String> sentinelGetMasterAddrByName(String masterName);
 
-  List<Map<String, String>> sentinelSlaves(String masterName);
+    Long sentinelReset(String pattern);
 
-  String sentinelFailover(String masterName);
+    List<Map<String, String>> sentinelSlaves(String masterName);
 
-  String sentinelMonitor(String masterName, String ip, int port, int quorum);
+    String sentinelFailover(String masterName);
 
-  String sentinelRemove(String masterName);
+    String sentinelMonitor(String masterName, String ip, int port, int quorum);
 
-  String sentinelSet(String masterName, Map<String, String> parameterMap);
+    String sentinelRemove(String masterName);
+
+    String sentinelSet(String masterName, Map<String, String> parameterMap);
 }

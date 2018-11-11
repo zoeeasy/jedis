@@ -12,6 +12,7 @@ import redis.clients.jedis.util.JedisClusterCRC16;
 public abstract class JedisClusterCommand<T> {
 
     private final JedisClusterConnectionHandler connectionHandler;
+
     private final int maxAttempts;
 
     public JedisClusterCommand(JedisClusterConnectionHandler connectionHandler, int maxAttempts) {

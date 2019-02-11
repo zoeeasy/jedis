@@ -19,12 +19,15 @@ public final class BuilderFactory {
         @Override
         public Double build(Object data) {
             String string = STRING.build(data);
-            if (string == null) return null;
+            if (string == null)
+                return null;
             try {
                 return Double.valueOf(string);
             } catch (NumberFormatException e) {
-                if (string.equals("inf") || string.equals("+inf")) return Double.POSITIVE_INFINITY;
-                if (string.equals("-inf")) return Double.NEGATIVE_INFINITY;
+                if (string.equals("inf") || string.equals("+inf"))
+                    return Double.POSITIVE_INFINITY;
+                if (string.equals("-inf"))
+                    return Double.NEGATIVE_INFINITY;
                 throw e;
             }
         }
